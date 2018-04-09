@@ -10,7 +10,12 @@ pipeline {
             steps {
                 sh 'mvn --version'
                 sh 'ls'
-                sh 'mvn clean install'
+                sh 'cd target'
+                sh 'ls'
+                sh 'cd ..'
+                sh 'mvn clean package'
+                sh 'ls'
+                sh 'cd target'
                 sh 'ls'
             }
         }
