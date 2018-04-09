@@ -159,6 +159,7 @@
 				
   </dependencies>
   <build>
+	  <defaultGoal>compile</defaultGoal>
     <finalName>pac</finalName>
     <plugins>
 			<plugin>
