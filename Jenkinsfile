@@ -12,7 +12,7 @@ pipeline {
                 sh 'ls'
                 sh 'mvn clean package'
                 sh 'ls'
-                sh 'cd target'
+                sh 'cd target/'
                 sh 'ls'
             }
         }
