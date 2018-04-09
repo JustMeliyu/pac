@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yto.pac.dao.IPacDao">
+  <resultMap id="ProtocolMap" type="com.yto.pac.pojo.TransportProtocol">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="trans_number" jdbcType="VARCHAR" property="transNumber" />
+    <result column="start_time" jdbcType="VARCHAR" property="startTime" />
+    <result column="end_time" jdbcType="VARCHAR" property="endTime" />
+    <result column="settlement_mode" jdbcType="VARCHAR" property="settlementMode" />
+    <result column="driver_freight" jdbcType="REAL" property="driverFreight" />
+    <result column="plate" jdbcType="VARCHAR" property="plate" />
+    <result column="create_date" jdbcType="DATE" property="createDate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="fk_driver_id" jdbcType="INTEGER" property="fkDriverId" />
+    <result column="fk_to_location_code" jdbcType="VARCHAR" property="fkToLocationCode" />
+    <result column="fk_at_location_code" jdbcType="VARCHAR" property="fkAtLocationCode" />
+    <result column="fk_operator_id" jdbcType="INTEGER" property="fkOperatorId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="status_time" jdbcType="TIMESTAMP" property="statusTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="relay_status" jdbcType="INTEGER" property="relayStatus" />
+    <result column="is_onway" jdbcType="INTEGER" property="isOnway" />
+    <result column="is_temp_truck" jdbcType="INTEGER" property="isTempTruck" />
+    <result column="is_overtime" jdbcType="INTEGER" property="isOvertime" />
+    <result column="line_no" jdbcType="VARCHAR" property="lineNo" />
+    <result column="carrier_name" jdbcType="VARCHAR" property="carrierName" />
+    <result column="is_link" jdbcType="INTEGER" property="isLink" />
+    <result column="link" jdbcType="VARCHAR" property="link" />
+    <result column="vehicle_type" jdbcType="VARCHAR" property="vehicleType" />
+    <result column="run_mode" jdbcType="INTEGER" property="runMode" />
+    <result column="voucher" jdbcType="VARCHAR" property="voucher" />
+    <result column="fk_truck_id" jdbcType="INTEGER" property="fkTruckId" />
+  </resultMap>
+  
+  <resultMap id="LineMap" type="com.yto.pac.pojo.Line">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="line_no" jdbcType="VARCHAR" property="lineNo" />
+    <result column="line_name" jdbcType="VARCHAR" property="lineName" />
+    <result column="start_org_code" jdbcType="VARCHAR" property="startOrgCode" />
+    <result column="start_org_name" jdbcType="VARCHAR" property="startOrgName" />
+    <result column="transfer_center_set" jdbcType="VARCHAR" property="transferCenterSet" />
+    <result column="end_org_code" jdbcType="VARCHAR" property="endOrgCode" />
+    <result column="end_org_name" jdbcType="VARCHAR" property="endOrgName" />
+    <result column="line_frequency_no" jdbcType="VARCHAR" property="lineFrequencyNo" />
+    <result column="line_frequency_name" jdbcType="VARCHAR" property="lineFrequencyName" />
+    <result column="start_time" jdbcType="VARCHAR" property="startTime" />
+    <result column="end_time" jdbcType="VARCHAR" property="endTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="day_span" jdbcType="INTEGER" property="daySpan" />
+    <result column="full_take_time" jdbcType="VARCHAR" property="fullTakeTime" />
+    <result column="full_distance" jdbcType="VARCHAR" property="fullDistance" />
+    <result column="line_property" jdbcType="VARCHAR" property="lineProperty" />
+    <result column="trans_type" jdbcType="VARCHAR" property="transType" />
+    <result column="line_status" jdbcType="INTEGER" property="lineStatus" />
+    <result column="fre_status" jdbcType="VARCHAR" property="freStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="line_type" jdbcType="INTEGER" property="lineType" />
+  </resultMap>
+  <resultMap id="TDARResultMap" type="com.yto.pac.pojo.TransportDepartureArrivalRecord">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="trans_number" jdbcType="VARCHAR" property="transNumber" />
+    <result column="plate" jdbcType="VARCHAR" property="plate" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="status_time" jdbcType="TIMESTAMP" property="statusTime" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="lon" jdbcType="INTEGER" property="lon" />
+    <result column="lat" jdbcType="INTEGER" property="lat" />
+    <result column="fk_driver_id" jdbcType="INTEGER" property="fkDriverId" />
+    <result column="fk_location_code" jdbcType="VARCHAR" property="fkLocationCode" />
+    <result column="fk_operator_id" jdbcType="INTEGER" property="fkOperatorId" />
+    <result column="source_type" jdbcType="INTEGER" property="sourceType" />
+    <result column="jg_trigger_time" jdbcType="INTEGER" property="jgTriggerTime" />
+  </resultMap>
+  <sql id="Protocol_Column_List">
+    id, trans_number, STR_TO_DATE(start_time, '%Y-%m-%d %H:%i') start_time, STR_TO_DATE(end_time, '%Y-%m-%d %H:%i') end_time, settlement_mode, driver_freight, plate, create_date, 
+    create_time, fk_driver_id, fk_to_location_code, fk_at_location_code, fk_operator_id, 
+    status, status_time, update_time, relay_status, is_onway, is_temp_truck, is_overtime, 
+    line_no, carrier_name, is_link, link, vehicle_type, run_mode, voucher, fk_truck_id
+  </sql>
+  <sql id="Line_Column_List">
+    id, line_no, line_name, start_org_code, start_org_name, transfer_center_set, end_org_code, 
+    end_org_name, line_frequency_no, line_frequency_name, start_time, end_time, status, 
+    day_span, full_take_time, full_distance, line_property, trans_type, line_status, 
+    fre_status, create_time, update_time, line_type
+  </sql>
+  <sql id="TDAR_Column_List">
+    id, trans_number, plate, create_at, status_time, type, lon, lat, fk_driver_id, fk_location_code, 
+    fk_operator_id, source_type, jg_trigger_time
+  </sql>
+  <select id="selectProtocol" resultMap="ProtocolMap">
+    SELECT 
+	<include refid="Protocol_Column_List" />
+    FROM transport_protocol t
+    where trans_number=#{transNumber}
+  </select>
+<!--   线路信息 -->
+  <select id="selectLine" resultMap="LineMap">
+    SELECT 
+    <include refid="Line_Column_List" />
+    FROM line t
+    where line_no=#{lineNo}
+  </select>
+<!--   经停点发停车记录 -->
+  <select id="selectTDAR" resultMap="TDARResultMap">
+    SELECT 
+    <include refid="TDAR_Column_List" />
+    FROM transport_departure_arrival_record t
+    where trans_number=#{transNumber}
+  </select>
+<!--   cp号 -->
+ <select id="selectTruck" resultType="java.lang.String">
+    SELECT t.vehicle_no
+    FROM truck t
+    where id=#{id}
+  </select>
+    <!--   实际的线路编号 -->
+  <select id="selectLineNote" resultType="java.lang.String">
+    SELECT t.line_no
+    FROM transport_protocol_note t
+ 	WHERE t.fk_trans_number=#{transNumber}
+ 	and t.note_type=5
+  </select>
+<!--    车签号 -->
+  <select id="selectCq" resultType="java.lang.String">
+    SELECT t.cq_number
+    FROM rs_cq_trans t
+	WHERE t.trans_number=#{transNumber}
+  </select>
+    <!--   备注信息 -->
+  <select id="selectRemark" resultType="java.lang.String">
+    SELECT t.note
+    FROM transport_protocol_note t
+ 	WHERE t.fk_trans_number=#{transNumber}
+ 	and t.note_type=2
+  </select>
+   <!--   手签 -->
+  <select id="selectNoteCqNumber" resultType="java.lang.String">
+    SELECT t.cq_number
+    FROM transport_protocol_cq t
+ 	WHERE t.trans_number=#{transNumber}
+ 	order by id desc
+ 	limit 1
+  </select>
+</mapper>

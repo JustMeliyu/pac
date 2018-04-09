@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* 绿色 */
+/*全站默认字体颜色*/
+a{color:#333}a:hover,a:focus,.maincolor,.maincolor a{color:#06c}
+.navbar{ background:#19a97b,0}/*顶部导航*/
+.navbar-logo,.navbar-logo-m,.navbar-slogan,.navbar-userbar{color:#fff}
+.navbar-logo:hover,.navbar-logo-m:hover{color:#fff;text-decoration: none}
+
+.Hui-aside{position: absolute;top:44px;bottom:0;left:0;padding-top:10px;width:199px;z-index:99;overflow:auto; background-color:rgba(238,238,238,0);_background-color:rgb(238,238,238);}
+.loginWraper{ position:absolute;width:100%; left:0; top:0; bottom:0; right:0; z-index:1; background:#3283AC url(bg.jpg) no-repeat center}
+
+.navbar-nav > ul > li, .navbar-nav > ul > li > a{ color:#fff}/*顶部导航文字颜色*/
+.navbar-userbar > ul> > li,.navbar-userbar > ul> > li > a{ color:#fff}
+
+.Hui-aside{}/*侧边栏*/
+.Hui-aside .menu_dropdown dt{color:#FFFFFF;border-bottom: 0px}/*左侧二级导航菜单*/
+.Hui-aside .menu_dropdown dt:hover{color:#FFCCFF}
+.Hui-aside .menu_dropdown dt:hover [class^="icon-"]{ color:#FF0000}
+.Hui-aside .menu_dropdown li a{color:#FFFFFF;}
+.Hui-aside .menu_dropdown li a:hover{color:#FFFFFF;background-color:#005377;}
+.Hui-aside .menu_dropdown li.current a,.menu_dropdown li.current a:hover{color:#FF0000}
+.Hui-aside .menu_dropdown dt .Hui-iconfont{ color:#ffffff;font-size:14px}
+.Hui-aside .menu_dropdown dt .menu_dropdown-arrow{ color:#b6b7b8}
+.dislpayArrow a{background:url(icon_arrow.png) no-repeat 0 0}
+.tabBar {border-bottom: 11px solid #19a97b}
+.tabBar span.current{background-color:#FF8000}
