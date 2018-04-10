@@ -26,8 +26,8 @@ pipeline {
         stage('deploy'){
             agent { label 'uat_118.190.87.8'}
             steps{
-                whoami
-                sh 'dep.sh'
+                sh 'whoami'
+                sh 'sh dep.sh'
             }
         }
     }
