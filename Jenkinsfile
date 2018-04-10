@@ -15,15 +15,10 @@ pipeline {
                 sh 'ls'
                 sh 'cd target/'
                 sh 'ls'
-            }
-        }
-        stage('results'){
-            steps{
                 junit '/home/ly_me/.jenkins/workspace/pac/target/surefire-reports/TEST-pac.TestCase.xml'  
                 archive 'target/pac.war'
             }
-        } 
-        
+        }
         stage('deploy'){
             agent { label 'uat_118.190.87.8'}
             steps{
