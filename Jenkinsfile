@@ -18,14 +18,8 @@ pipeline {
             }
         }
         stage('results'){
-            agent{
-                docker {
-                    image 'maven:3-alpine'
-                    args '-u root -v $HOME/.m2:/root/.m2'
-                }
-            }
             steps{
-                junit '/home/ly_me/.jenkins/workspace/pac/target/surefire-reports/TEST-pac.xml'  
+                junit '/home/ly_me/.jenkins/workspace/pac/target/surefire-reports/TEST-pac.TestCase.xml'  
                 archive 'target/pac.war'
             }
         } 
