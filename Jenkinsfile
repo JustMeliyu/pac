@@ -16,5 +16,17 @@ pipeline {
                 sh 'ls'
             }
         }
+        stage('results'){
+            steps{
+                junit '/home/ly_me/.jenkins/workspace/pac/target/surefire-reports/test-pac.xml'  
+                archive 'target/pac.jar'
+            }
+        }
+        stage('deploy'){
+            steps{
+                whoami
+                ssh cameltest@118.190.87.8 "sh dep.sh"
+            }
+        }
     }
 }
