@@ -1,12 +1,13 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-u root -v $HOME/.m2:/root/.m2'
-        }
-    }
+    agent none
     stages {
         stage('Build') {
+            agent{
+                docker {
+                    image 'maven:3-alpine'
+                    args '-u root -v $HOME/.m2:/root/.m2'
+                }
+            }
             steps {
                 sh 'mvn --version'
                 sh 'ls'
@@ -23,9 +24,10 @@ pipeline {
             }
         }
         stage('deploy'){
+            agent { label 'uat_118.190.87.8'}
             steps{
                 whoami
-                ssh cameltest@118.190.87.8 "sh dep.sh"
+                sh 'dep.sh'
             }
         }
     }
