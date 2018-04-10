@@ -18,8 +18,8 @@ pipeline {
         }
         stage('results'){
             steps{
-                junit '/home/ly_me/.jenkins/workspace/pac/target/surefire-reports/test-pac.xml'  
-                archive 'target/pac.jar'
+                junit '/home/ly_me/.jenkins/workspace/pac/target/surefire-reports/TEST-pac.xml'  
+                archive 'target/pac.war'
             }
         }
         stage('deploy'){
