@@ -19,13 +19,5 @@ pipeline {
                 archive 'target/pac.war'
             }
         }
-        stage('deploy'){
-            agent { label 'uat_118.190.87.8'}
-            steps{
-                sh 'whoami'
-                sh 'sh dep.sh'
-            }
-        }
-    }
     
 }
