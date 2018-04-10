@@ -19,5 +19,5 @@ pipeline {
                 archive 'target/pac.war'
             }
         }
-    
+    }
 }
