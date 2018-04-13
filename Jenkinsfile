@@ -19,7 +19,8 @@ pipeline {
         stage('deploy'){
             steps{
                 whoami
-                
+                sh "ansible test -m script -a 'deploy.sh'"
+                sh "ansible-playbook playbook.yml -f 10"
             }
         }
     }
